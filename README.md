@@ -20,12 +20,12 @@ Install the **python libraries** associated with the **Houdini DICOM Toolset**
     ```
     > **NOTE:** Your version of **Houdini** may be diferrent, hence the "17.X.X"
 3.  Install **pip**:
-    Proper installation of **pip** requires bootstrap [1](https://pip.pypa.io/en/stable/installing/)
+    Proper installation of **pip** requires bootstrap [[1](https://pip.pypa.io/en/stable/installing/)]
     ```
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
     python get-pip.py
     ```
-4.  Install the following libraries:[2](https://pydicom.github.io/pydicom/stable/getting_started.html)
+4.  Install the following libraries: [[2](https://pydicom.github.io/pydicom/stable/getting_started.html)]
     ```
     python -m pip install -U numpy
     python -m pip install -U pydicom
