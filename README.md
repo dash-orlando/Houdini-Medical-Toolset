@@ -25,7 +25,7 @@ Install the **python libraries** associated with the **Houdini DICOM Toolset**
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
     python get-pip.py
     ```
-4.  Install the following libraries:
+4.  Install the following libraries:[2](https://pydicom.github.io/pydicom/stable/getting_started.html)
     ```
     python -m pip install -U numpy
     python -m pip install -U pydicom
@@ -46,3 +46,4 @@ The _autoinstall.bat_ application automates steps 1-4 of the manual installation
 
 ## References
 1.  [Bootstrap pip installation](https://pip.pypa.io/en/stable/installing/)
+2.  [PyDICOM](https://pydicom.github.io/pydicom/stable/getting_started.html)
