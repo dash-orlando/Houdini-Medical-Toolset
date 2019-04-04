@@ -17,11 +17,18 @@ The following instructions will guide you through the installation of the **Houd
         cd C:\Program Files\Side Effects Software\Houdini 17.X.X\python27
         ```
         > **NOTE:** Your version of **Houdini** may be diferrent, hence the "17.X.X"
-    3.  Install **pip**
+    3.  Install **pip**:
         Proper installation of **pip** requires bootstrap [1](https://pip.pypa.io/en/stable/installing/)
         ```
         curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-
+        python get-pip.py
+        ```
+    4.  Install the following libraries:
+        ```
+        python -m pip install -U numpy
+        python -m pip install -U pydicom
+        ```
+        > **NOTE:** Any additional libraries missing will result in a standard python **ImportError: No module named _____**
 
 ## References
 1.  [Bootstrap pip installation](https://pip.pypa.io/en/stable/installing/)
