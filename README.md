@@ -13,7 +13,7 @@ The following instructions will guide you through the installation of the **Houd
 
 ### Windows Installation (Manual)
 Install the **python libraries** associated with the **Houdini DICOM Toolset**
-1.  Open the Windows **command propmt** as administrator
+1.  Open the Windows **command propmt** as **administrator**
 2.  Navigate to **Houdini's** python directory;
     ```
     cd C:\Program Files\Side Effects Software\Houdini 17.X.X\python27
@@ -33,10 +33,16 @@ Install the **python libraries** associated with the **Houdini DICOM Toolset**
     > **NOTE:** Any additional libraries missing will result in a standard python **ImportError: No module named _____**
 
 ### Windows Installation (Automated) --BETA--
-An application has been built to automatically install all required python modules
-...
-..
-. to do
+The _autoinstall.bat_ application automates steps 1-4 of the manual installation (above)
+1.  Open the Windows **command propmt** as **administrator**
+2.  Navigate to the **repo** directory in your system
+    ```
+    cd C:\Users\...\Documents\...\PD3D\Houdini-DICOM-Toolset
+    ```
+3.  Execute application;
+    ```
+    autoinstall
+    ```
 
 ## References
 1.  [Bootstrap pip installation](https://pip.pypa.io/en/stable/installing/)
