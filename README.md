@@ -28,6 +28,9 @@ Install the **python libraries** associated with the **Houdini DICOM Toolset**
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
     python get-pip.py
     ```
+    > **NOTE:** Some Windows systems my have "curl" pre-installed, others may not.
+    
+    > **IF** the terminals responds with; `'curl' is not recognized as an internal or external command, operable program or batch           > file.` **AND** pip does not run properly, please follow the instructions [here](https://stackoverflow.com/questions/28736666/curl-not-recognized-as-an-internal-or-external-command-operable-program-or-batc)
 4.  Install the following libraries: [[2](https://pydicom.github.io/pydicom/stable/getting_started.html)]
     ```
     python -m pip install -U numpy
