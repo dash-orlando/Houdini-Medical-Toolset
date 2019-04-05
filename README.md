@@ -10,6 +10,9 @@ The following instructions will guide you through the installation of the **Houd
 ### Pre-requisites
 0.  Install the latest version of [Houdini](https://www.sidefx.com/download/)
     > **NOTE:** The **Houdini DICOM Toolset** was developed using **Houdini 17**
+    
+    > **IF** You (the user) do not have **administrator previledges** for the system;
+    1.  _Change the installtion path from_ `C:\Program Files\...` to `C:\Apps\...` _or any target directory that does not require admin_
 
 ### Windows Installation (Manual)
 Install the **python libraries** associated with the **Houdini DICOM Toolset**
