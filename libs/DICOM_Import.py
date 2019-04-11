@@ -61,7 +61,7 @@ def main():
             print(e)
             raise Exception("Failed to stack pixel_arrays")
 
-        # store processed data
+        # store processed data in the same dirctory as the folder containing the DICOM stack
         np.save(fileLocation + "/../imageData", data)
 
     # load 3D array from presaved file (load from cache)
@@ -79,9 +79,15 @@ def main():
 
 # Read Dicom files into an array, and sort them in scan order
 def loadScan(path):
+
+    for s in os.listdir(path):
+        temp = dicom.read_file(path + "/" + s)
+        
+
     slices = [dicom.read_file(path + "/" + s) for s in os.listdir(path)]
     slices.sort(key = lambda x: int(x.InstanceNumber))
 
+    # determine image thickness so the slices will be placed into the correct physical space later
     try:
         slice_thickness = np.abs(slices[0].ImagePositionPatient[0] - slices[1].ImagePositionPatient[0])
     except:
@@ -113,8 +119,8 @@ def getPixelsHU(patient):
 
 # Read DICOM meta information and store it as attributes on the detail level of the geometry
 def buildAttributes(patient):
-    # for elem in patient[0]:
-    #     print(elem)
+    for elem in patient[0]:
+        print(elem)
 
     try:
         geo.addAttrib(hou.attribType.Global, 'SliceThickness', patient[0].SliceThickness)
@@ -167,12 +173,12 @@ def buildAttributes(patient):
         print(e)
 
 # create volume to contain density information with appropriate physical size
-# and accurate voxel size
+# (assuming a default scene scale of 1 meter per unit) and accurate voxel size
 def createVolume(data):
         # calculate 3D Size of sacan data
-        xSize = SliceSize[0] * PixelSpacing[0]
-        ySize = len(data) * SliceThickness
-        zSize = SliceSize[1] * PixelSpacing[1]
+        xSize = SliceSize[0] * PixelSpacing[0] / 100
+        ySize = len(data) * SliceThickness / 100
+        zSize = SliceSize[1] * PixelSpacing[1] / 100
 
         #create volume indecies
         xIndex = len(data[0])

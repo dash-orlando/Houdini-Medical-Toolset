@@ -15,6 +15,9 @@ zRange = range( 0, resolution[2] )
 for x in xRange:
     for y in yRange:
         for z in zRange:
+            # if the dicom is normalized, then values are form 0 - 1 and a
+            # 1-value function will effectively inverse the values otherwise,
+            # multiplying by -1 will reverse the volume
             if(geo.intAttribValue(Normalized) == 0):
                 volume.setVoxel( (x, y, z), -1 * volume.voxel( (x, y, z) ) )
             else:
