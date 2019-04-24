@@ -82,7 +82,7 @@ def loadScan(path):
 
     for s in os.listdir(path):
         temp = dicom.read_file(path + "/" + s)
-        
+
 
     slices = [dicom.read_file(path + "/" + s) for s in os.listdir(path)]
     slices.sort(key = lambda x: int(x.InstanceNumber))
@@ -204,8 +204,8 @@ def fillVolume(volume, data):
 
     # Write min and max density scale to volume data
     try:
-        geo.addAttrib( hou.attribType.Global, 'MinimumDensity', volume.volumeMax() )
-        geo.addAttrib( hou.attribType.Global, 'MaximumDensity', volume.volumeMin() )
+        geo.addAttrib( hou.attribType.Global, 'MinimumDensity', volume.volumeMin() )
+        geo.addAttrib( hou.attribType.Global, 'MaximumDensity', volume.volumeMax() )
     except Exception as e:
         print("Couldn't bind density scale attributes.")
         print(e)

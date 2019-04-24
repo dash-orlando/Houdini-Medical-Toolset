@@ -34,9 +34,10 @@ switcher = [ [-3000, 0], [300, 1900], [-120, 90], [-1, 1], [20, 40], [20, 30], [
 if(default):
     rangeL = switcher[template][0]
     rangeH = switcher[template][1]
-    if(geo.intAttribValue('Normalized') == 1):
-        rangeL = (rangeL - min) / (max - min)
-        rangeH = (rangeH - min) / (max - min)
+
+if(geo.intAttribValue('Normalized') == 1):
+     rangeL = (rangeL - min) / (max - min)
+     rangeH = (rangeH - min) / (max - min)
 
 
 

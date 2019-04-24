@@ -41,7 +41,7 @@ image = zoom(image, real_resize_factor)
 
 # Create new volume using the new values that have been created
 box = houd.BoundingBox(0.0, 0.0, 0.0, len(image) * newSpacing[0], len(image[0]) * newSpacing[1], len(image[0][0]) * newSpacing[2] )
-data = geo.createVolume( len(image), len(image[0]), len(image[0][0]),  )
+data = geo.createVolume( len(image), len(image[0]), len(image[0][0]), box )
 
 xRange = range( 0, len(image) )
 yRange = range( 0, len(image[0]) )
