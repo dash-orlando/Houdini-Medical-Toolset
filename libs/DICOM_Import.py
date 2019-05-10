@@ -12,7 +12,8 @@ geo = node.geometry()
 patient = None
 data = None
 
-# Initialize blank variables for attributes - allows for easy acessing those variables later.
+# Initialize blank variables for attributes - allows for easy acessing those
+# variables later.
 SliceThicknes = None
 PixelSpacing = None
 Orientation = None
@@ -38,7 +39,8 @@ def main():
     # Read node parameters to use
     importAttributes()
 
-    # Load data to process, whether it's raw DICOM information or a Numpy array of already processed information
+    # Load data to process, whether it's raw DICOM information or a
+    # Numpy array of already processed information
     if new_dicom:
         fileLocation = node.evalParm("directory")
         if not os.path.exists(fileLocation): return
@@ -61,7 +63,8 @@ def main():
             print(e)
             raise Exception("Failed to stack pixel_arrays")
 
-        # store processed data in the same dirctory as the folder containing the DICOM stack
+        # store processed data in the same dirctory as the folder
+        # containing the DICOM stack
         np.save(fileLocation + "/../imageData", data)
 
     # load 3D array from presaved file (load from cache)
@@ -87,7 +90,8 @@ def loadScan(path):
     slices = [dicom.read_file(path + "/" + s) for s in os.listdir(path)]
     slices.sort(key = lambda x: int(x.InstanceNumber))
 
-    # determine image thickness so the slices will be placed into the correct physical space later
+    # determine image thickness so the slices will be placed into the correct
+    # physical space later
     try:
         slice_thickness = np.abs(slices[0].ImagePositionPatient[0] - slices[1].ImagePositionPatient[0])
     except:
@@ -117,7 +121,8 @@ def getPixelsHU(patient):
 
     return np.array(image, dtype=np.int16).astype(np.float64)
 
-# Read DICOM meta information and store it as attributes on the detail level of the geometry
+# Read DICOM meta information and store it as attributes on
+# the detail level of the geometry
 def buildAttributes(patient):
     for elem in patient[0]:
         print(elem)

@@ -28,7 +28,14 @@ default = node.evalParm('useDefault')
 
 # default values for default value segmentation, values are:
 # Airway, bone, fat, water, muscle, white matter, grey matter, blood
-switcher = [ [-3000, 0], [300, 1900], [-120, 90], [-1, 1], [20, 40], [20, 30], [37, 45], [13, 75] ]
+switcher = [ [-3000, 0],
+             [300, 1900],
+             [-120, 90],
+             [-1, 1],
+             [20, 40],
+             [20, 30],
+             [37, 45],
+             [13, 75] ]
 
 # if planning to use default value, overwrite the user given values with defaults
 if(default):
