@@ -128,9 +128,14 @@ def buildAttributes(patient):
         print(elem)
 
     try:
-        geo.addAttrib(hou.attribType.Global, 'SliceThickness', patient[0].SliceThickness)
         global SliceThickness
         SliceThickness = patient[0].SliceThickness
+
+        #if slice thickness is not desegnated, use pixel spacing instead
+        if(SliceThickness == 0):
+            SliceThickness = patient[0].PixelSpacing[0]
+        geo.addAttrib(hou.attribType.Global, 'SliceThickness', SliceThickness)
+
     except Exception as e:
         print("Couldn't bind Slice Thickness attribute beacuse " + e)
         print(e)
@@ -180,6 +185,7 @@ def buildAttributes(patient):
 # create volume to contain density information with appropriate physical size
 # (assuming a default scene scale of 1 meter per unit) and accurate voxel size
 def createVolume(data):
+
         # calculate 3D Size of sacan data
         xSize = SliceSize[0] * PixelSpacing[0] / 100
         ySize = len(data) * SliceThickness / 100
