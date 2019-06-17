@@ -188,7 +188,7 @@ def createVolume(data):
 
         # calculate 3D Size of sacan data
         xSize = SliceSize[0] * PixelSpacing[0] / 1000
-        ySize = len(data) * SliceThickness / 100
+        ySize = len(data) * SliceThickness / 1000
         zSize = SliceSize[1] * PixelSpacing[1] / 1000
 
         #create volume indecies
