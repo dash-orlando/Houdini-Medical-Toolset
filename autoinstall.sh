@@ -7,4 +7,10 @@ echo ----------------------------------------------------
 echo Installing Houdini DICOM Toolset Python Requirements
 echo ----------------------------------------------------
 
+# We install the requirements
 $HB/hython -m pip install -r requirements.txt
+
+# Done
+echo ----------------------------------------------------
+echo Installation Completed!
+echo ----------------------------------------------------
